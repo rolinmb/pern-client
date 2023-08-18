@@ -9,12 +9,12 @@ import 'firebase/compat/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyA4Yb7o0yO6Vommdk9oOCNwkvSA2T2490c",
-  authDomain: "rmb-pern-app.firebaseapp.com",
-  projectId: "rmb-pern-app",
-  storageBucket: "rmb-pern-app.appspot.com",
-  messagingSenderId: "422169170013",
-  appId: "1:422169170013:web:6392a026abfd62fd0e7db4"
+  apiKey: "_",
+  authDomain: "_",
+  projectId: "_",
+  storageBucket: "_",
+  messagingSenderId: "_",
+  appId: "_"
 });
 
 const auth = firebase.auth();
