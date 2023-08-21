@@ -27,36 +27,40 @@ const ListUsers = ({ psqlUser }) => {
   }, []);
   return (
     <Fragment>
-      <table className='table mt-5 text-center'>
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Password</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Last Name</th>
-            <th>Standard User or Admin</th>
-            <th>{ psqlUser.is_admin ? 'Edit': null }</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-        {users.map(user => (
-          <tr key={user.user_id}>
-            <td>{user.username}</td>
-            <td>{user.password}</td>
-            <td>{user.first_name}</td>
-            <td>{user.middle_name}</td>
-            <td>{user.last_name}</td>
-            <td>{user.is_admin ? 'Admin' : 'Standard User'}</td>
-            <td>{psqlUser.is_admin ? <EditUser user={user} /> : null}</td>
-            <td>
-              <button className='btn btn-danger' onClick={() => deleteUser(user.user_id)}>Delete User</button>
-            </td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+      <div className='list-container'>
+        <table className='table mt-5 text-center'>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Password</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
+              <th>Standard/Admin User</th>
+              <th>{psqlUser.is_admin ? 'Edit': null}</th>
+              <th>{psqlUser.is_admin ? 'Delete' : null }</th>
+            </tr>
+          </thead>
+          <tbody>
+          {users.map(user => (
+            <tr key={user.user_id}>
+              <td>{user.username}</td>
+              <td>{user.password}</td>
+              <td>{user.first_name}</td>
+              <td>{user.middle_name}</td>
+              <td>{user.last_name}</td>
+              <td>{user.is_admin ? 'Admin' : 'Standard User'}</td>
+              <td>{psqlUser.is_admin ? <EditUser user={user} /> : null}</td>
+              <td>
+                {psqlUser.is_admin ?
+                  <button className='btn btn-danger' onClick={() => deleteUser(user.user_id)}>Delete User</button>
+                  : null}
+              </td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      </div>
     </Fragment>
   );
 }

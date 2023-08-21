@@ -31,7 +31,7 @@ const ListTodos = () => {
 
   return (
     <Fragment>
-      <div className='todo-list-container'>
+      <div className='todo-list-container list-container'>
         <table className='table mt-3 text-center todo-table'>
           <thead>
             <tr>
