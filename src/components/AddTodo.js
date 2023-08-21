@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const InputTodo = () => {
+const AddTodo = () => {
   const [description, setDescription] = useState('');
   const onSubmitForm = async(e) => {
     e.preventDefault();
@@ -27,4 +27,4 @@ const InputTodo = () => {
   );
 }
 
-export default InputTodo;
+export default AddTodo;

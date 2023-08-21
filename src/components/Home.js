@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import Todo from './Todo';
+import Todos from './Todos';
 import Users from './Users';
 
 const Home = () => {
     return (
         <Fragment>
-            <Todo />
+            <Todos />
             <Users />
         </Fragment>
     );
