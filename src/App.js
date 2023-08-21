@@ -12,10 +12,20 @@ function App() {
           <h1 className="text-center mt-5">PERN-App</h1>
         </header>
         <main>
-          { psqlUser && psqlUser.success ? <Home /> : <Login setPsqlUser={setPsqlUser} /> }
+          { (psqlUser && psqlUser.success) ? <Fragment><Logout setPsqlUser={setPsqlUser} /><Home psqlUser={psqlUser} /></Fragment> : <Login setPsqlUser={setPsqlUser} /> }
         </main>
       </div>
     </Fragment>
+  );
+}
+
+const Logout = ({ setPsqlUser }) => {
+  const clearPsqlUser = (e) => {
+    e.preventDefault();
+    setPsqlUser(null);
+  }
+  return (
+    <button className='btn btn-success' onClick={e => clearPsqlUser(e)}>Logout with PSQL</button>
   );
 }
 

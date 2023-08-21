@@ -18,10 +18,10 @@ const Login = ({ setPsqlUser }) => {
     }
     return (
       <Fragment>
-        <h1>Login PlÆse</h1>
-        <form className='d-flex mt-5' onSubmit={e => handleLogin(e)}>
-          <input type='text' placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
-          <input type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+        <h1 className='ml-5'>PlÆse Login</h1>
+        <form className='d-flex mt-5 justify-content-center' onSubmit={e => handleLogin(e)}>
+          <input type='text' placeholder='Username' onChange={e => setUsername(e.target.value)} />
+          <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} />
           <button className='btn btn-success'>Login with PSQL</button>
         </form>
       </Fragment>
