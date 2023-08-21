@@ -5,7 +5,7 @@ import ListTodos from './ListTodos';
 const Todos = () => {
   return (
     <Fragment>
-      <h2 className='text-center mt-5'>Todo List</h2>
+      <h3 className='text-center mt-5'>Todo List</h3>
       <AddTodo />
       <ListTodos /> 
     </Fragment>

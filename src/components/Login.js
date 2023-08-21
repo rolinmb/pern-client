@@ -11,10 +11,12 @@ const Login = ({ setPsqlUser }) => {
         body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
-      if (data) {
+      if (data.success) {
+        sessionStorage.setItem('psql_user', JSON.stringify(data));
         setPsqlUser(data);
+      } else {
+        console.log(data);
       }
-      console.log(data);
     }
     return (
       <Fragment>

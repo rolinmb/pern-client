@@ -5,7 +5,7 @@ import ListUsers from './ListUsers';
 const Users = () => {
   return (
     <Fragment>
-      <h2 className='text-center mt-5'>Application Users</h2>
+      <h3 className='text-center mt-5'>Application Users</h3>
       <AddUser />
       <ListUsers />
     </Fragment>
