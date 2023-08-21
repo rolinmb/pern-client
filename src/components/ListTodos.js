@@ -6,7 +6,8 @@ const ListTodos = () => {
 
   const deleteTodo = async(id) => {
     try {
-      const response = await fetch("http://localhost:5000/todos/"+String(id), {method: "DELETE"});
+      const response = await fetch("http://localhost:5000/todos/"+String(id),
+        {method: "DELETE"});
       setTodos(todos.filter(todo => todo.todo_id !== id));
       console.log(response);
     } catch (err) {

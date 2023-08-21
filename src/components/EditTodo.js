@@ -38,7 +38,7 @@ const EditTodo = ({ todo }) => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-warning" data-dismiss="modal" onClick={e => updateDescription(e)}>Submit Changes</button>
-              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => setDescription(todo.description)}>Close</button>
+              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={() => setDescription(todo.description)}>Close w/o Saving</button>
             </div>
           </div>
         </div>
