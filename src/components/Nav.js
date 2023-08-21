@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import  { Link } from 'react-router-dom';
+import './Nav.css';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
     <Fragment>
-      <ul className='list-group'>
+      <ul className='list-group align-items-center nav-container'>
         <li><Link className='list-group-item' to='/todolist'>Todo List</Link></li>
         <li><Link className='list-group-item' to='/userlist'>Users</Link></li>
       </ul>

@@ -6,11 +6,12 @@ const AddUser = () => {
   const [first_name, setFirst] = useState('');
   const [middle_name, setMiddle] = useState('');
   const [last_name, setLast] = useState('');
+  const [is_admin, setIsAdmin] = useState(false);
 
   const createUser = async(e) => {
     e.preventDefault();
     try {
-      const body = { username, password, first_name, middle_name, last_name };
+      const body = { username, password, first_name, middle_name, last_name, is_admin };
       const response = await fetch("http://localhost:5000/users",
         {
           method: "POST",
@@ -23,6 +24,10 @@ const AddUser = () => {
     } catch (err) {
         console.error(err.message);
     }
+  }
+
+  const handleCheckClick = () => {
+    setIsAdmin(!is_admin);
   }
 
   return (
@@ -48,6 +53,8 @@ const AddUser = () => {
               <input type="text" className="form-control" value={middle_name} onChange={e => setMiddle(e.target.value)} />
               <p>Last Name:</p>
               <input type="text" className="form-control" value={last_name} onChange={e => setLast(e.target.value)} />
+              <p>{is_admin ? 'Create as Admin' : 'Create as Standard User'}</p>
+              <input type="checkbox" checked={is_admin} onChange={handleCheckClick} />
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-success" data-dismiss="modal" onClick={e => createUser(e)}>Add User</button>

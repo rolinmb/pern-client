@@ -15,10 +15,21 @@ function App() {
     <Fragment>
       <div className="app-container">
         <header>
-          <h1 className="text-center mt-5">PERN-App</h1>
+          { (psqlUser && psqlUser.success) ? 
+            <h2 className="user-info">
+              Hello {psqlUser.first_name} {psqlUser.last_name}!
+              <br />
+              <i>{ psqlUser.is_admin ? '(Admin)' : '(Standard User)'}</i>
+              <Logout psqlUser={psqlUser} setPsqlUser={setPsqlUser} />
+            </h2>
+            :
+            <h1 className="text-center mt-5">PERN-App</h1>
+          }
         </header>
-        <main>
-          { (psqlUser && psqlUser.success) ? <Fragment><Logout psqlUser={psqlUser} setPsqlUser={setPsqlUser} /><Home psqlUser={psqlUser} /></Fragment> : <Login setPsqlUser={setPsqlUser} /> }
+        <main className='main-content'>
+          { (psqlUser && psqlUser.success) ?
+            <Home psqlUser={psqlUser} /> : <Login setPsqlUser={setPsqlUser} />
+          }
         </main>
       </div>
     </Fragment>
@@ -32,7 +43,7 @@ const Logout = ({ psqlUser, setPsqlUser }) => {
     setPsqlUser(null);
   }
   return (
-    <button className='btn btn-success' onClick={e => clearPsqlUser(e)}>Logout {psqlUser.username}</button>
+    <button className='btn btn-success logout-button' onClick={e => clearPsqlUser(e)}>Logout {psqlUser.username}</button>
   );
 }
 

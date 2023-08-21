@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import EditUser from './EditUser';
 
-const ListUsers = () => {
+const ListUsers = ({ psqlUser }) => {
   const [users, setUsers] = useState([]);
   const deleteUser = async(id) => {
     try {
@@ -35,7 +35,8 @@ const ListUsers = () => {
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
-            <th>Edit</th>
+            <th>Standard User or Admin</th>
+            <th>{ psqlUser.is_admin ? 'Edit': null }</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -47,9 +48,10 @@ const ListUsers = () => {
             <td>{user.first_name}</td>
             <td>{user.middle_name}</td>
             <td>{user.last_name}</td>
-            <td><EditUser user={user} /></td>
+            <td>{user.is_admin ? 'Admin' : 'Standard User'}</td>
+            <td>{psqlUser.is_admin ? <EditUser user={user} /> : null}</td>
             <td>
-                <button className='btn btn-danger' onClick={() => deleteUser(user.user_id)}>Delete User</button>
+              <button className='btn btn-danger' onClick={() => deleteUser(user.user_id)}>Delete User</button>
             </td>
           </tr>
         ))}

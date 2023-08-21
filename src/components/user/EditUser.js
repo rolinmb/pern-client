@@ -6,11 +6,12 @@ const EditUser = ({ user }) => {
   const [first_name, setFirst] = useState(user.first_name);
   const [middle_name, setMiddle] = useState(user.middle_name);
   const [last_name, setLast] = useState(user.last_name);
+  const [is_admin, setIsAdmin] = useState(user.is_admin);
 
   const updateUser = async(e) => {
     e.preventDefault();
     try {
-      const body = { username, password, first_name, middle_name, last_name };
+      const body = { username, password, first_name, middle_name, last_name, is_admin };
       const response = await fetch("http://localhost:5000/users/"+user.user_id,
         {
           method: "PUT",
@@ -23,6 +24,10 @@ const EditUser = ({ user }) => {
     } catch (err) {
         console.error(err.message);
     }
+  }
+
+  const handleCheckClick = () => {
+    setIsAdmin(!is_admin);
   }
 
   return (
@@ -48,6 +53,8 @@ const EditUser = ({ user }) => {
               <input type="text" className="form-control" value={middle_name} onChange={e => setMiddle(e.target.value)} />
               <p>Last Name:</p>
               <input type="text" className="form-control" value={last_name} onChange={e => setLast(e.target.value)} />
+              <p>{ is_admin ? 'Admin' : 'Standard User'}</p>
+              <input type="checkbox" checked={is_admin} onChange={handleCheckClick} />
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-warning" data-dismiss="modal" onClick={e => updateUser(e)}>Submit Changes</button>
