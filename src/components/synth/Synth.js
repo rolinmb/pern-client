@@ -47,7 +47,7 @@ const Synth = () => {
         setNoteMap(updatedNoteMap);
       }
     }
-  }, [noteMap, pressedNoteMap, pressedKeyMap]);
+  }, [noteMap, pressedNoteMap, pressedKeyMap, muted]);
   
   const handleKeyUp = useCallback((e) => {
     const updatedNoteMap = {...noteMap};
@@ -109,6 +109,7 @@ const Synth = () => {
       }
     };
   }, [handleKeyDown, handleKeyUp]);
+
   return (
     <Fragment>
       <h3 className='text-center mt-5 page-header-main'>In-Browser Synthesizer {muted ? '(CURRENTLY MUTED)' : '(UNMUTED)'}</h3>
