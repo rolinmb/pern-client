@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
+import AddItem from './AddItem';
+import ListItems from './ListItems';
 
-const Shop = () => {
+const Shop = ({ psqlUser }) => {
   return (
     <Fragment>
       <h3 className='text-center mt-5 page-header-main'>Shop</h3>
-      &nbsp;
+      { psqlUser.is_admin ? <AddItem /> : null }
+      <ListItems psqlUser={psqlUser} />
     </Fragment>
   );
 }

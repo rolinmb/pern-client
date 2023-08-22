@@ -22,7 +22,7 @@ const Home = ({ psqlUser }) => {
           <Route path='/userlist' element={<Users psqlUser={psqlUser} />} />
           <Route path='/studio' element={<PngStudio />} />
           <Route path='/synth' element={<Synth />}/>
-          <Route path='/shop' element={<Shop />}/>
+          <Route path='/shop' element={<Shop psqlUser={psqlUser} />}/>
           <Route path='/orders' element={<Orders psqlUser={psqlUser} />}/>
         </Routes>
       </BrowserRouter>
