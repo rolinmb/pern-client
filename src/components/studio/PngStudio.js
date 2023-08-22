@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-const Studio = () => {
+const PngStudio = () => {
   const [pngUrl, setPngUrl] = useState('');
   const [newPngUrl, setNewPngUrl] = useState('');
   const [warpAmount, setWarpAmount] = useState(1.25);
@@ -207,9 +207,9 @@ function shiftAlgorithm(imageData, shiftAmountX, shiftAmountY, width, height) {
       if (sourceX >= 0 && sourceX < width && sourceY >= 0 && sourceY < height) {
         const sourceIndex = (sourceY * width + sourceX) * 4;
         const targetIndex = (y * width + x) * 4;
-        data[targetIndex] = imageData.data[sourceIndex]; // Red
-        data[targetIndex + 1] = imageData.data[sourceIndex + 1]; // Green
-        data[targetIndex + 2] = imageData.data[sourceIndex + 2]; // Blue
+        data[targetIndex] = imageData.data[sourceIndex];         // r
+        data[targetIndex + 1] = imageData.data[sourceIndex + 1]; // g
+        data[targetIndex + 2] = imageData.data[sourceIndex + 2]; // b
       }
     }
   }
@@ -219,4 +219,4 @@ function shiftAlgorithm(imageData, shiftAmountX, shiftAmountY, width, height) {
   return imageData;
 }
 
-export default Studio;
+export default PngStudio;
